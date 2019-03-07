@@ -1,11 +1,34 @@
 import * as React from "react";
+import { ITask } from './Task';
 
-class TaskForm extends React.Component<any, any> {
-  handleNewTask(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    alert("Saving");
+class TaskForm extends React.Component<ITaskFormProps, any> {
+  constructor(props: ITaskFormProps) {
+    super(props);
+    this.state = {
+      title: '',
+      description: ''
+    }
   }
 
+  handleNewTask(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const newTask: ITask = {
+      id: 1,
+      title: this.state.title,
+      description: this.state.description,
+      completed: false
+    };
+    //this.props.addNewTask();
+    console.log(newTask)
+  }
+
+  handleInputChange(e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value
+    })
+    console.log(this.state);
+  }
   render() {
     return (
       <div className="card card-body">
@@ -13,12 +36,16 @@ class TaskForm extends React.Component<any, any> {
           <div className="form-group">
             <input
               type="text"
+              name="title"
+              onChange={e=> this.handleInputChange(e)}
               className="form-control"
               placeholder="Task Title"
             />
           </div>
           <div className="form-group">
             <textarea
+            name="description"
+              onChange={e=> this.handleInputChange(e)}
               className="form-control"
               cols={10}
               rows={10}
@@ -35,4 +62,7 @@ class TaskForm extends React.Component<any, any> {
   }
 }
 
+interface ITaskFormProps {
+  addNewTask: (Task:ITask) => void;
+}
 export default TaskForm;

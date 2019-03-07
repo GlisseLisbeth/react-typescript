@@ -12,7 +12,8 @@ export class App extends React.Component<IProps, IState> {
   addNewTask(task: ITask) {
     this.setState({
       tasks: [...this.state.tasks, task]
-    })
+    }, () => (console.log(this.state)));
+    
   }
 
   render() {
@@ -26,7 +27,7 @@ export class App extends React.Component<IProps, IState> {
         <div className="container p-4">
           <div className="row">
             <div className="col-md-4">
-              <TaskForm addNewTask={this.addNewTask}/>
+              <TaskForm addNewTask={this.addNewTask.bind(this)}/>
             </div>
           </div>
         </div>

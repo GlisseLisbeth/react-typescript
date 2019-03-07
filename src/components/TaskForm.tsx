@@ -23,8 +23,7 @@ class TaskForm extends React.Component<ITaskFormProps, any> {
       description: this.state.description,
       completed: false
     };
-    //this.props.addNewTask();
-    console.log(newTask)
+    this.props.addNewTask(newTask);
   }
 
   handleInputChange(e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) {

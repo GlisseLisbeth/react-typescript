@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { App } from './components/App';
+
 const app = document.getElementById('app');
 
-ReactDOM.render(<h1>Hello Wordl</h1>, app);
+ReactDOM.render(<App title="React TS"/>, app);

@@ -10,10 +10,15 @@ class TaskForm extends React.Component<ITaskFormProps, any> {
     }
   }
 
+  getCurrentTimestamp(): number{
+    const date: Date = new Date();
+    return date.getTime();
+  }
+
   handleNewTask(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const newTask: ITask = {
-      id: 1,
+      id: this.getCurrentTimestamp(),
       title: this.state.title,
       description: this.state.description,
       completed: false

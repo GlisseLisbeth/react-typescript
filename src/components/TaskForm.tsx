@@ -24,6 +24,7 @@ class TaskForm extends React.Component<ITaskFormProps, any> {
       completed: false
     };
     this.props.addNewTask(newTask);
+    this.setState({title:'', description:''})
   }
 
   handleInputChange(e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) {
@@ -41,6 +42,7 @@ class TaskForm extends React.Component<ITaskFormProps, any> {
             <input
               type="text"
               name="title"
+              value={this.state.title}
               onChange={e=> this.handleInputChange(e)}
               className="form-control"
               placeholder="Task Title"
@@ -50,6 +52,7 @@ class TaskForm extends React.Component<ITaskFormProps, any> {
             <textarea
             name="description"
               onChange={e=> this.handleInputChange(e)}
+              value={this.state.description}
               className="form-control"
               cols={10}
               rows={10}

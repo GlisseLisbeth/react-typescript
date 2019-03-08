@@ -60,7 +60,6 @@ class TaskForm extends React.Component<ITaskFormProps, any> {
             />
           </div>
           <button type="submit" className="btn btn-primary btn-block">
-            {" "}
             Save
           </button>
         </form>

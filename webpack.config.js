@@ -6,8 +6,7 @@ module.exports = {
     entry: './src/index.tsx',
     output: {
         path: path.resolve(__dirname, 'build/'),
-        publicPath: "/",
-        filename: 'bundles.min.js',
+        filename: 'js/bundles.js',
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
@@ -37,7 +36,7 @@ module.exports = {
         new htmlWebpackPlugin({
             template: 'src/index.html'
         }),
-        new miniCssExtractPlugin('style.css')
+        new miniCssExtractPlugin('css/style.css')
     ],
     devtool: 'source-map'
 }

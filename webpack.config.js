@@ -5,8 +5,9 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './src/index.tsx',
     output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'bundles.js'
+        path: path.resolve(__dirname, 'build/'),
+        publicPath: "/",
+        filename: 'bundles.min.js',
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']

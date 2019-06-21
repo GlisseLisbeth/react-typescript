@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server -d"
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -16,13 +19,14 @@
   "bugs": {
     "url": "https://github.com/GlisseLisbeth/react-typescript/issues"
   },
-  "homepage": "https://github.com/GlisseLisbeth/react-typescript#readme",
+  "homepage": "https://github.com/GlisseLisbeth/react-typescript/",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
   "devDependencies": {
-    "@types/react": "^16.8.7",
+    "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.2",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^2.1.1",
@@ -32,7 +36,7 @@
     "sass-loader": "^7.1.0",
     "source-map-loader": "^0.2.4",
     "typescript": "^3.3.3333",
-    "webpack": "^4.29.6",
+    "webpack": "^4.35.0",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
   }
